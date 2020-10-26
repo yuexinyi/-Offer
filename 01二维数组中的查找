@@ -47,3 +47,28 @@ public class Solution {
     }
 }
 3.右下查找法
+public class Solution {
+    public boolean Find(int target, int [][] array) {
+       //3.右下查找法
+        int rows = array.length;
+        if(rows <= 0){
+            return false;
+        }
+        int cols = array[0].length;
+        if(cols <= 0){
+            return false;
+        }
+        int row = 0;//(0,cols-1)表示二维数组的右上角元素
+        int col = cols-1;
+        while(row < rows && col >= 0){
+            if(array[row][col] > target){
+                col--;
+            }else if(array[row][col] < target){
+                row++;
+            }else{
+                return true;
+            }
+        }
+        return false;
+    }
+}
