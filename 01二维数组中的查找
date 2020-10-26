@@ -21,5 +21,29 @@ public class Solution {
     }
 }
 2.左上查找法
-
+public class Solution {
+    public boolean Find(int target, int [][] array) {
+       //2.左上查找法
+       int rows = array.length;//获取二维数组的行数
+        if(rows <= 0){
+            return false;
+        }
+        int cols = array[0].length;//获取二维数组的列数
+        if(cols <= 0){
+            return false;
+        }
+        int row = rows-1;//(row,col)表示二维数组左下角元素
+        int col = 0;
+        while(row >= 0 && col < cols){
+            if(array[row][col] < target){
+                col++;
+            }else if(array[row][col] > target){
+                row--;
+            }else{
+                return true;
+            }
+        }
+        return false; 
+    }
+}
 3.右下查找法
