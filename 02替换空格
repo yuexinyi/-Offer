@@ -1,0 +1,32 @@
+题目描述
+请实现一个函数，把字符串 s 中的每个空格替换成"%20"。
+
+示例 1：
+输入：s = "We are happy."
+输出："We%20are%20happy."
+ 
+限制：
+0 <= s 的长度 <= 10000
+
+
+分析：
+将字符串的字符拆分出来，是空格则替换
+
+代码：
+class Solution {
+    public String replaceSpace(String s) {
+        if(s == null){
+            return "";//如果字符串为空串，不存在可以替换的情况，直接返回空串即可
+        }
+        StringBuffer sb = new StringBuffer();//新建一个字符串，保存替换后的字符串对象
+        for(int i = 0;i < s.length();i++){
+            char c = s.charAt(i);//通过下标取得字符串的每一个字符
+            if(c == ' '){
+                sb.append("%20");//该字符为空格，则替换为%20
+            }else{
+                sb.append(c);//不是空格的情况
+            }
+        }
+        return sb.toString();//返回替换后字符串结果
+    }
+}
